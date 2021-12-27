@@ -46,10 +46,9 @@ function onMouseDown() {
 function onMouseUp() {
   isMouseDown = false;
 }
-const move = () =>{
- 
-  root.rotation.y+=0.002;
-}
+const move = () => {
+  root.rotation.y += 0.002;
+};
 //control
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enablePan = false;
@@ -63,25 +62,10 @@ let animate = () => {
 
   if (root) {
     controls.update();
-if(!isMouseDown)
-setTimeout(()=>{
-  move();
-},2000)
- 
-
-
-   
-
-   
-   
-         
-          
-           
-             
-
-    
-     
-   
+    if (!isMouseDown)
+      setTimeout(() => {
+        move();
+      }, 2000);
   }
 
   requestAnimationFrame(animate);
