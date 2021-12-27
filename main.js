@@ -14,16 +14,13 @@ camera.position.set(4, 2, 2);
 //model
 let root;
 const loader = new GLTFLoader();
-loader.load("./cake.glb", function (glb) {
-  console.log(glb);
+loader.load("./cake.glb", (glb) => {
   root = glb.scene;
   scene.add(root);
 });
 //lightning
-const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-directionalLight.position.set(2, 2, 5);
-THREE.DirectionalLight.castShadow = true;
-scene.add(directionalLight);
+const light = new THREE.HemisphereLight(0xffffff, 0x080820, 1);
+scene.add(light);
 
 //renderer
 const renderer = new THREE.WebGLRenderer({});
@@ -33,13 +30,59 @@ document.body.appendChild(renderer.domElement);
 renderer.shadowMap.enabled = true;
 renderer.gamaOutput = true;
 
+//onClick
+
+var isMouseDown = false;
+
+function init() {
+  window.addEventListener("mousedown", onMouseDown);
+  window.addEventListener("mouseup", onMouseUp);
+}
+
+function onMouseDown() {
+  isMouseDown = true;
+}
+
+function onMouseUp() {
+  isMouseDown = false;
+}
+const move = () =>{
+ 
+  root.rotation.y+=0.002;
+}
 //control
 const controls = new OrbitControls(camera, renderer.domElement);
+controls.enablePan = false;
+controls.enableDamping = true;
+
+init();
 
 //animate
-const animate = () => {
+let animate = () => {
   //rotation
-  if (root) root.rotation.y += 0.01;
+
+  if (root) {
+    controls.update();
+if(!isMouseDown)
+setTimeout(()=>{
+  move();
+},2000)
+ 
+
+
+   
+
+   
+   
+         
+          
+           
+             
+
+    
+     
+   
+  }
 
   requestAnimationFrame(animate);
   renderer.render(scene, camera);
