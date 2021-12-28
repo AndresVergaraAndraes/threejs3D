@@ -32,7 +32,7 @@ renderer.gamaOutput = true;
 
 //onClick
 
-var isMouseDown = false;
+let isMouseDown = false;
 
 function init() {
   window.addEventListener("mousedown", onMouseDown);
@@ -53,7 +53,8 @@ const move = () => {
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enablePan = false;
 controls.enableDamping = true;
-
+controls.minDistance=2;
+controls.maxDistance=6;
 init();
 
 //animate
