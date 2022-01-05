@@ -2,32 +2,34 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  
 }
-body{
-  
-  background: rgb(212,212,221);
-  background: linear-gradient(90deg, rgba(212,212,221,1) 0%, rgba(250,250,251,1) 50%, rgba(210,210,210,1) 100%);
-background-repeat: no-repeat ;
-
+body {
+  background: rgb(212, 212, 221);
+  background: linear-gradient(
+    90deg,
+    rgba(212, 212, 221, 1) 0%,
+    rgba(250, 250, 251, 1) 50%,
+    rgba(210, 210, 210, 1) 100%
+  );
+  background-repeat: no-repeat;
 }
-header{
+header {
   background-color: aliceblue;
   height: 70px;
 }
-header div{
- position:relative;
- top:5px;
- left:15px;
+header div {
+  position: relative;
+  top: 5px;
+  left: 15px;
 
   width: 150px;
   height: 60px;
-  background-image: url('2.png');
+  background-image: url("ecgroup-icon.png");
   background-size: cover;
-  background-position:center ;
-  background-repeat: no-repeat ;
+  background-position: center;
+  background-repeat: no-repeat;
 }
-#reload{
+#reload {
   position: relative;
   top: 10px;
   left: 10px;
